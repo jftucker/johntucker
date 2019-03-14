@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="article-entry">
+    <h2>{{ object.title }}</h2>
+      <p>by {{ object.author }} | {{ object.date }}</p>
+      <p>{{ object.body }}</p>
+  </div>
+
+  <p><a href="{% url 'article_edit' article.pk %}">Edit</a> |
+    <a href="{% url 'article_delete' article.pk %}">Delete</a></p>
+    {% for image in article.images.all %}
+      <p>
+        <span class="font-weight-bold">{{ image.title }} &middot;</span>
+        <img src="{{ image.image.url }}" width=100 height=100 />
+        {{ image.image.url }}
+      </p>
+    {% endfor %}
+
+  <p>Back to <a href="{% url 'article_list' %}">All Articles</a>.</p>
+{% endblock content %}
