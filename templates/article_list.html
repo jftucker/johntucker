@@ -7,7 +7,7 @@
     <div class="card">
       <div class="card-header">
         <span class="font-weight-bold"><a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a></span> &middot;
-        <span class="text-muted"> by {{ article.author }} | {{ article.date }}</span>
+        <span class="text-muted"> in post type: {{ article.post_type }} | {{ article.date }}</span>
       </div>
       <div class="card-body">
         {{ article.body }}

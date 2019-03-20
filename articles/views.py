@@ -15,6 +15,14 @@ from .forms import ArticleForm, ImageFormSet
 class HomePageWithArticles(ListView):
     model = Article
     template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['all_articles'] = self.model.objects.all()
+        context['art_articles'] = self.model.objects.filter(post_type='Art')
+        context['job_articles'] = self.model.objects.filter(post_type='Job')
+        context['programming_articles'] = self.model.objects.filter(post_type='Programming')
+        return context
     
 
 class ArticleCreateWithInlinesView(LoginRequiredMixin, CreateWithInlinesView):

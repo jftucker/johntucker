@@ -49,11 +49,13 @@ INSTALLED_APPS = [
     # 3rd party
     'crispy_forms',
     'extra_views',
+    'rest_framework',
 
     # Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'articles.apps.ArticlesConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [

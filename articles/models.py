@@ -8,12 +8,13 @@ class Article(models.Model):
     POST_TYPES = (
         ('Job', 'Job'),
         ('Art', 'Art'),
+        ('Programming', 'Programming'),
     )
 
     title = models.CharField(max_length=255)
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    post_type = models.CharField(max_length=10, choices=POST_TYPES, default='Job')
+    post_type = models.CharField(max_length=20, choices=POST_TYPES, default='Job')
 
     def __str__(self):
         return self.title
@@ -35,7 +36,7 @@ class Image(models.Model):
     image = models.ImageField('image', upload_to='images/', null=True, blank=True)
     
     def __str__(self):
-        return self.title
+        return self.image.url
 
     def __unicode__(self):
         return self.title

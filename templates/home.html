@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
 body, html {
@@ -42,9 +46,16 @@ body, html {
   min-height: 500px;
 }
 
+/* Make the image fully responsive */
+.carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+
 .logo{
   overflow:visible; 
 }
+
 .video {
   min-height: 100%;
   width: 100%;
@@ -167,9 +178,9 @@ body, html {
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row-padding w3-center">
-    {% for article in object_list %}
+    {% for article in programming_articles %}
     <div class="w3-col m3">
-      <img src="{{ article.images.all.0.image.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="{{ article.images.all.0.title }}">
+      <img src="{{ article.images.all.0.image.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" id="{{ article.id }}" alt="{{ article.images.all.0.title }}">
     </div>
       {% if forloop.counter|divisibleby:4 %}
   </div>
@@ -180,11 +191,12 @@ body, html {
 </div>
 
 <!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
+<div id="modal01" class="w3-modal w3-black w3-animate-opacity" style="padding-top: 20px">
+  <span class="w3-button w3-large w3-black w3-display-topright" style="z-index:1000" title="Close Modal Image" onclick="getElementById('modal01').style.display='none'"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent">
+    <h3 id="caption" class="w3-opacity"></h3>
+    <div id="modalcont"></div>
+    <div id="articlebody" class="w3-opacity w3-large w3-left-align"></div>
   </div>
 </div>
 
@@ -249,11 +261,30 @@ body, html {
 <script>
 // Modal Image Gallery
 function onClick(element) {
-  document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
   var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
+  var articlebodyText = document.getElementById("articlebody");
+  var url = "{% url 'API_list' %}" + element.id + "/";
+  $.get(url, function(data, status){
+    captionText.innerHTML = data.title;
+    articlebodyText.innerHTML = data.body;
+
+    var i;
+    var text;
+    text = "<div id=\"demo\" class=\"carousel slide\" data-ride=\"carousel\"><!-- Indicators --><ul class=\"carousel-indicators\">";
+    text += "<li data-target=\"#demo\" data-slide-to=\"0\" class=\"active\"></li>";
+    for (i = 1; i < Object.keys(data.images).length; i++) { 
+      text += "<li data-target=\"#demo\" data-slide-to=\"" + i + "\"></li>";
+    };
+    text += "</ul><div class=\"carousel-inner\"><div class=\"carousel-item active\"><img src=\"" + data.images[0] + "\" style=\"w3-image\"></div>";
+    for (i = 1; i < Object.keys(data.images).length; i++) { 
+      text += "<div class=\"carousel-item\"><img src=\"" + data.images[i] + "\" style=\"w3-image\"></div>";
+    };
+    text += "</div><a class=\"carousel-control-prev\" href=\"#demo\" data-slide=\"prev\"><span class=\"carousel-control-prev-icon\"></span></a><a class=\"carousel-control-next\" href=\"#demo\" data-slide=\"next\"><span class=\"carousel-control-next-icon\"></span></a></div>";
+    $("#modalcont").html(text);
+  });
 }
+
 
 // Change style of navbar on scroll
 window.onscroll = function() {myFunction()};
@@ -276,6 +307,7 @@ function toggleFunction() {
     }
 }
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </body>
 </html>
