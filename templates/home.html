@@ -114,23 +114,42 @@ body, html {
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
   <h3 class="w3-center">ABOUT ME</h3>
-  <p class="w3-center"><em>Engineer</em></p>
-  <p>Overview of me. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-    qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p class="w3-center"><em>Engineer | Curious Mind | Student</em></p>
+  <p>
+    When someone tells you that they hate to be bad at things, what do you imagine?
+  </p>
+  <p>
+    I imagine hundreds of hours of hard work. Pushing through book after book to learn to code. Running thousands of miles in training.
+    Patiently rehearsing strokes of a pen, a pencil, an airbrush. Late nights and early mornings. Time sacrificed in the persuit of perfection
+    that may never come.
+  </p>
+  <p>
+    I imagine a person stuck without a solution, simmering for a little idea to march towards a breakthrough.
+  </p>
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
       <img src="{% static 'images/profile.jpg' %}" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
     </div>
 
     <!-- Hide this text on small devices -->
-    <div class="w3-col m6 w3-hide-small w3-padding-large">
-      <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div class="w3-col m6 w3-padding-large">
+      <p>I've never been the type of person who thought it acceptable to stop progressing at anything worth doing.
+          Because of my drive to be continously learning, I've managed to teach myself to excel at many things. This
+          website is a perfect example; composed in Django, it uses a mixture of class-based generic views, the admin
+          interface, 3rd party packages, custom code, the REST api framework, and more to demonstrate that I can learn
+          complex systems and put them together into a finished project. The articles below are editable by a user with
+          appropriate permissions, the admin is accessable to a superuser. The front page itself is a single page app 
+          which interfaces with a REST api through javascript.
+      </p>
+      <p>
+        Please explore some of the things I've created, and keep in mind that the type of person who trains 400 hours a 
+        year to run 100 mile races, or learns to draw just to spend 300 hours meticulously hand painting a motorcycle; that person
+        takes the soft skills which enables them to succeed to work with them every day. They're not just qualified to do
+        the job you're hiring for, they're qualified for the job that you didn't know you were going to need.
+      </p>
     </div>
   </div>
-  <p class="w3-large w3-center w3-padding-16">Im really good at:</p>
+  <p class="w3-large w3-center w3-padding-16">Some things I'm good at:</p>
   <p class="w3-wide"><i class="fas fa-chalkboard-teacher"></i>Problem Solving</p>
   <div class="w3-light-grey">
     <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
@@ -147,20 +166,20 @@ body, html {
 
 <div class="w3-row w3-center w3-dark-grey w3-padding-16">
   <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">14+</span><br>
-    Partners
+    <span class="w3-xlarge">BSME</span><br>
+    Portland State
   </div>
   <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">55+</span><br>
-    Projects Done
+    <span class="w3-xlarge">REST APIs</span><br>
+    for Django
   </div>
   <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">89+</span><br>
-    Happy Clients
+    <span class="w3-xlarge">ROCKET ENGINE</span><br>
+    Designer
   </div>
   <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">150+</span><br>
-    Meetings
+    <span class="w3-xlarge">TEAM</span><br>
+    Player
   </div>
 </div>
 
@@ -173,8 +192,8 @@ body, html {
 
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
-  <h3 class="w3-center">MY WORK</h3>
-  <p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br>
+  <h3 class="w3-center">PROGRAMMING WORK</h3>
+  <p class="w3-center"><em>The stuff that should pique your intrest.</em></p><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row-padding w3-center">
@@ -188,15 +207,49 @@ body, html {
       {% endif %}
     {% endfor %}
   </div>
+  <div class="w3-padding-64">
+    <h3 class="w3-center">ARTWORK</h3>
+    <p class="w3-center"><em>My creative side is important.</em></p><br>
+
+    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+    <div class="w3-row-padding w3-center">
+      {% for article in art_articles %}
+      <div class="w3-col m3">
+        <img src="{{ article.images.all.0.image.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" id="{{ article.id }}" alt="{{ article.images.all.0.title }}">
+      </div>
+        {% if forloop.counter|divisibleby:4 %}
+    </div>
+    <div class="w3-row-padding w3-center w3-section">
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="w3-padding-64">
+      <h3 class="w3-center">JOBS</h3>
+      <p class="w3-center"><em>From building rockets to testing space equipment.</em></p><br>
+  
+      <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+      <div class="w3-row-padding w3-center">
+        {% for article in job_articles %}
+        <div class="w3-col m3">
+          <img src="{{ article.images.all.0.image.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" id="{{ article.id }}" alt="{{ article.images.all.0.title }}">
+        </div>
+          {% if forloop.counter|divisibleby:4 %}
+      </div>
+      <div class="w3-row-padding w3-center w3-section">
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
 </div>
 
-<!-- Modal for full size images on click-->
+<!-- Modal for articles on click-->
 <div id="modal01" class="w3-modal w3-black w3-animate-opacity" style="padding-top: 20px">
   <span class="w3-button w3-large w3-black w3-display-topright" style="z-index:1000" title="Close Modal Image" onclick="getElementById('modal01').style.display='none'"><i class="fa fa-remove"></i></span>
   <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent">
     <h3 id="caption" class="w3-opacity"></h3>
     <div id="modalcont"></div>
-    <div id="articlebody" class="w3-opacity w3-large w3-left-align"></div>
+    <div class="w3-opacity w3-large w3-left-align"><p id="articlebody"></p><a id="seemore" href="#">See it on git...</a></div>
   </div>
 </div>
 
@@ -214,13 +267,13 @@ body, html {
 
   <div class="w3-row w3-padding-32 w3-section">
     <div class="w3-col m4 w3-container">
-      <img src="" class="w3-image w3-round" style="width:100%">
+      <img src="{% static 'images/profile2.jpg' %}" class="w3-image w3-round" style="width:100%">
     </div>
     <div class="w3-col m8 w3-panel">
       <div class="w3-large w3-margin-bottom">
         <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Portland, Oregon US<br>
         <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: 503 929 4508<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: johntucker0686@gmail.com<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: hire@johntucker.me<br>
       </div>
       <p>Feel free to contact me, or leave me a note:</p>
       <form action="/action_page.php" target="_blank">
@@ -247,9 +300,8 @@ body, html {
   <div class="w3-xlarge w3-section">
     <a href="https://www.facebook.com/theearthvolta"><i class="fab fa-facebook-f w3-hover-opacity"></i></a>
     <a href="https://www.linkedin.com/in/john-tucker/"><i class="fab fa-linkedin w3-hover-opacity"></i></a>
-    <i class="fab fa-github w3-hover-opacity"></i>
-    <i class="fab fa-bitbucket w3-hover-opacity"></i>
-
+    <a href="https://github.com/jftucker/"><i class="fab fa-github w3-hover-opacity"></i></a>
+    <a href="https://bitbucket.org/jftucker/"><i class="fab fa-bitbucket w3-hover-opacity"></i></a>
     <i class="fab fa-react w3-hover-opacity"></i>
     <i class="fab fa-node-js w3-hover-opacity"></i>
     <i class="fab fa-npm w3-hover-opacity"></i>
@@ -268,6 +320,7 @@ function onClick(element) {
   $.get(url, function(data, status){
     captionText.innerHTML = data.title;
     articlebodyText.innerHTML = data.body;
+    $("#seemore").attr("href", data.link);
 
     var i;
     var text;

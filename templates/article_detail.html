@@ -10,7 +10,8 @@
   </div>
 
   <p><a href="{% url 'article_edit' article.pk %}">Edit</a> |
-    <a href="{% url 'article_delete' article.pk %}">Delete</a></p>
+    <a href="{% url 'article_delete' article.pk %}">Delete</a> | 
+    <a href="{{ article.link }}">Link</a></p>
     {% for image in article.images.all %}
       <p>
         <span class="font-weight-bold">{{ image.title }} &middot;</span>

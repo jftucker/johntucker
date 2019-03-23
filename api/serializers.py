@@ -16,6 +16,7 @@ class ArticleSerializer(serializers.ModelSerializer):
             'title',
             'body',
             'date',
+            'link',
             'post_type',
             'images',
         )

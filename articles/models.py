@@ -15,6 +15,7 @@ class Article(models.Model):
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     post_type = models.CharField(max_length=20, choices=POST_TYPES, default='Job')
+    link = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return self.title
