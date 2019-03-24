@@ -196,12 +196,17 @@ body, html {
   <p class="w3-center"><em>The stuff that should pique your intrest.</em></p><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <div class="w3-row-padding w3-center">
-    {% for article in programming_articles %}
-    <div class="w3-col m3">
-      <img src="{{ article.images.all.0.image.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" id="{{ article.id }}" alt="{{ article.images.all.0.title }}">
-    </div>
-      {% if forloop.counter|divisibleby:4 %}
+  <div class="w3-center w3-cell-row">
+      {% for article in programming_articles %}
+      <div class="w3-quarter w3-display-container w3-cell w3-dark-grey" style="overflow:hidden;height:150px">
+        <img src="{{ article.images.all.0.image.url }}" style="width:100%" onclick="onClick(this)" class="w3-opacity w3-display-middle w3-hover-opacity-off" id="{{ article.id }}" alt="{{ article.images.all.0.title }}">
+        <div class="w3-display-topleft" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-small w3-dark-grey w3-medium w3-animate-opacity">
+                {{ article.title }}
+            </span>
+        </div>
+      </div>
+        {% if forloop.counter|divisibleby:4 %}
   </div>
   <div class="w3-row-padding w3-center w3-section">
       {% endif %}
@@ -212,10 +217,15 @@ body, html {
     <p class="w3-center"><em>My creative side is important.</em></p><br>
 
     <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-    <div class="w3-row-padding w3-center">
+    <div class="w3-center w3-cell-row">
       {% for article in art_articles %}
-      <div class="w3-col m3">
-        <img src="{{ article.images.all.0.image.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" id="{{ article.id }}" alt="{{ article.images.all.0.title }}">
+      <div class="w3-quarter w3-display-container w3-cell w3-dark-grey" style="overflow:hidden;height:150px">
+        <img src="{{ article.images.all.0.image.url }}" style="width:100%" onclick="onClick(this)" class="w3-opacity w3-display-middle w3-hover-opacity-off" id="{{ article.id }}" alt="{{ article.images.all.0.title }}">
+        <div class="w3-display-topleft" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-small w3-dark-grey w3-medium w3-animate-opacity">
+                {{ article.title }}
+            </span>
+        </div>
       </div>
         {% if forloop.counter|divisibleby:4 %}
     </div>
@@ -229,12 +239,17 @@ body, html {
       <p class="w3-center"><em>From building rockets to testing space equipment.</em></p><br>
   
       <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-      <div class="w3-row-padding w3-center">
-        {% for article in job_articles %}
-        <div class="w3-col m3">
-          <img src="{{ article.images.all.0.image.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" id="{{ article.id }}" alt="{{ article.images.all.0.title }}">
-        </div>
-          {% if forloop.counter|divisibleby:4 %}
+      <div class="w3-center w3-cell-row">
+          {% for article in job_articles %}
+          <div class="w3-quarter w3-display-container w3-cell w3-dark-grey" style="overflow:hidden;height:150px">
+            <img src="{{ article.images.all.0.image.url }}" style="width:100%" onclick="onClick(this)" class="w3-opacity w3-display-middle w3-hover-opacity-off" id="{{ article.id }}" alt="{{ article.images.all.0.title }}">
+            <div class="w3-display-topleft" style="white-space:nowrap;">
+                <span class="w3-center w3-padding-small w3-dark-grey w3-medium w3-animate-opacity">
+                    {{ article.title }}
+                </span>
+            </div>
+          </div>
+            {% if forloop.counter|divisibleby:4 %}
       </div>
       <div class="w3-row-padding w3-center w3-section">
           {% endif %}
