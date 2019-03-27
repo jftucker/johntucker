@@ -28,7 +28,7 @@ class HomePageWithArticles(ListView):
 class ArticleCreateWithInlinesView(LoginRequiredMixin, CreateWithInlinesView):
     model = Article
     inlines = (ImageFormSet,)
-    fields = ('title', 'body', 'link', 'post_type',)
+    fields = ('title', 'body', 'link', 'link_text', 'post_type',)
     template_name = 'article_new.html'
     login_url = 'login'
     
@@ -38,7 +38,7 @@ class ArticleCreateWithInlinesView(LoginRequiredMixin, CreateWithInlinesView):
 class ArticleUpdateWithInlinesView(LoginRequiredMixin, UpdateWithInlinesView):
     model = Article
     inlines = (ImageFormSet,)
-    fields = ('title', 'body', 'link', 'post_type',)
+    fields = ('title', 'body', 'link', 'link_text', 'post_type',)
     template_name = 'article_edit.html'
     login_url = 'login'
 
