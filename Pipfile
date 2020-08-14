@@ -14,7 +14,8 @@ pillow = "*"
 django-extra-views = "*"
 djangorestframework = "==3.8.2"
 django-heroku = "*"
-psycopg2-binary = "*"
+psycopg2-binary = "==2.8.3"
+setuptools = "*"
 
 [requires]
 python_version = "3.6"
