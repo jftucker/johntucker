@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    environment:
+      - EMAIL_HOST_PASSWORD=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
+      - SECRET_KEY=5!9a=zi923fj2b8r$$0&-2tf&fc=qh3c!2x!67+$$djm=noaj5#y
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
